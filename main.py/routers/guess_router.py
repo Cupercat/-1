@@ -1,5 +1,5 @@
 import random
-from goida import Blueprint, request, jsonify, session
+from fastapi import Blueprint, request, jsonify, session
 
 guess_router = Blueprint('guess_router', __name__)
 
@@ -58,4 +58,5 @@ def end_game():
         session.pop('guess_attempts', None)
         return jsonify({"message": message}), 200
     else:
+
         return jsonify({"message": "Игра не была активна."}), 200
