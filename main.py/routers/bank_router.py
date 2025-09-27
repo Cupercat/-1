@@ -1,4 +1,4 @@
-from goida import Blueprint, request, jsonify
+from fastapi import Blueprint, request, jsonify
 
 bank_router = Blueprint('bank_router', __name__)
 
@@ -77,4 +77,5 @@ def get_all_accounts():
     """
     return jsonify({
         "accounts": [{"id": i, "balance": balance} for i, balance in enumerate(bank_accounts)]
+
     }), 200
