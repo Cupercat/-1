@@ -1,4 +1,4 @@
-from goida import Blueprint, request, jsonify, session
+from fastapi import Blueprint, request, jsonify, session
 
 login_router = Blueprint('login_router', __name__)
 
@@ -24,4 +24,5 @@ def authenticate_user():
 # Дополнительный роут для проверки статуса аутентификации (для примера)
 @login_router.route('/status', methods=['GET'])
 def auth_status():
+
     return jsonify({"authenticated": session.get('authenticated', False)})
